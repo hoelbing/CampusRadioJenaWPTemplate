@@ -5,40 +5,64 @@ Description: Theme erstellt von Carsten Hölbing für <a href=”http://www.camp
 Version: 1.0
 Author: Carsten Hölbing
 */
+body {
+	line-height:1.5;
+	font-family: Arial;
+	color:#000;
+	font-size:10pt;
+	background-color: #969696;
+	background-image: none;
+}
+
 #wrapper {
 	width: 950px;
 	margin: auto;
-	/*margin-top:50px;*/
-	border: 1px solid red;
+	background-color: #ffffff;	
+	/*margin-top:50px;
+	border: 1px solid red;*/
 
 }
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~ Page Header ~~~~~~~~~~~~~~~*/
 #page_header {
 	/*width:900px;*/
-	height: 95px;
-	/*border-top: 1px solid red;*/
-	border-bottom: 1px solid red;
+	height: 160px;
+	/*border-top: 1px solid red;
+	border-bottom: 1px solid red;*/
 	background-color:#ffea00;
 }
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#box_sidebar {
+/*~~~~~~~~~~ content box ~~~~~~~~~~~~~~~~~~*/
 
+#box_content {
+	width: 600px;
+	padding: 20px;
+	float: left;
+	/*border: 1px solid #0000FF;*/
 }
-#box_sidebar{
-	width: 270px;
+
+#page_header_uebergang
+{
+	width: 100%;
+	padding: 0px;
+	float: left;
+	background-image: url(images/header_rel.png);
+	background-repeat: repeat-y;	/*border: 1px solid #0000FF;*/
+}
+/*~~~~~~~~~~~ sidebar ~~~~~~~~~~~~~~~~~*/
+#box_sidebar {
+	width: 260px;
 	padding: 10px;
 	padding-top: 20px;
-	float: left;	
-	border-top: 1px solid red;
-}
+	float: left;
+	/*border: 1px solid red;*/
+	
 
-#box_sidebar p {
 	font-family: Arial;
 	font-size: 10px;
 	font-weight: normal;	
 	color: #666;
 	margin: 12px 0px 15px 10px;
 }
+
 
 #box_sidebar h1 {
 	font-family: Arial;
@@ -63,32 +87,28 @@ Author: Carsten Hölbing
 	color: #ff0000;
 	text-decoration: underline;
 }
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 table {
   margin-top:-5px;
   margin-bottom:0px;
   width:100%;
-}
-#box_content {
-width: 520px;
-padding: 20px;
-float: left;
-}
+}*/
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #footer {
-
 	clear: both;
 	width: 100%;
 	font-family: Arial;
 	margin-top: 5px;
 	padding: 0px;
 	text-align: right;
-	border-top: 1px solid red;
+	/* border-top: 1px solid red;*/
 	color: #969696;
 	font-size: 12px;
 	font-weight: normal;
 	text-decoration: none;
 	background-color:#ffea00;
+	background-repeat: repeat;
 }
 
 #footer a{
@@ -96,3 +116,37 @@ float: left;
   color: #969696;
 
 }
+
+h1, h2, h3, h4, h5, h6 {font-weight:normal;color:red;	text-decoration: none;}
+h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
+h2 {font-size:2em;margin-bottom:0.75em;}
+h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
+h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
+h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
+h6 {font-size:1em;font-weight:bold;}
+a:focus, a:hover {color:red;	text-decoration: none;}
+a {color:red;text-decoration:underline;	text-decoration: none;}
+
+#menus a{-moz-border-radius:6px 6px 0 0;border-radius:6px 6px 0 0;-webkit-border-radius:6px 6px 0 0;}
+#menus ul ul a{-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;}
+
+/* #nav */
+#nav{z-index:5;position:relative;height:31px;margin:0 auto;padding-top:20px;clear:both;background:#ffea00;}
+#menus{width:700px;height:31px;margin:0 auto;padding-right:260px;font-size:14px;text-shadow:0 1px 0 #000;}
+#menus a{border:1px solid #555;border-bottom:none;color:#abaaaa;display:block;line-height:30px;background:#333;padding:0 10px;}
+#menus ul{list-style:none;margin:0;}
+#menus li{float:left;position:relative;margin-right:8px;}
+#menus li:hover > a{background:#222;color:#fff;}
+#menus ul li.current_page_item > a,
+#menus ul li.current-menu-ancestor > a,
+#menus ul li.current-menu-item > a,
+#menus ul li.current-menu-parent > a{background:#f7f7f7;color:#333;text-shadow:0 1px 0 #fff;}
+#menus ul li.current_page_item:hover > a,
+#menus ul li.current-menu-ancestor:hover > a,
+#menus ul li.current-menu-item:hover > a,
+#menus ul li.current-menu-parent:hover > a{background:#222;color:#fff;text-shadow:0 1px 0 #000;}
+#menus ul li:hover > ul{display:block;}
+#menus ul ul a{background:#222;width:160px;height:auto;}
+#menus ul ul{display:none;position:absolute;top:31px;left:0;float:left;width:150px;z-index:99999;}
+#menus ul ul li{min-width:150px;}
+#menus ul ul ul{left:100%;top:0;}

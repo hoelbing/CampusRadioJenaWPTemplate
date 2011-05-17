@@ -30,5 +30,40 @@
 	<div id="wrapper">
 	
     <div id="page_header">
+    
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+		    <td valign="middle">&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td valign="middle">&nbsp;</td>
+		  </tr>
+		  <tr>
+		    <td width="3%" valign="middle">&nbsp;</td>
+		    <td width="61%"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logoEule.png" border="0" /></td>
+		    <td width="36%" valign="middle"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+		      <tr>
+		        <td><div align="center"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/hoeren.png" /></div></td>
+		        <td><div align="center"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/playlist.png" /></div></td>
+		        <td><div align="center"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/cam.png" /></div></td>
+		      </tr>
+		    </table></td>
+		    </tr>
+		  <tr>
+		    <td valign="middle">&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td valign="middle">&nbsp;</td>
+		  </tr>
+		
+		</table>
 
 	</div>
+	
+	<div id="nav">
+		<div id="menus">
+			<ul><li<?php if (is_home()) echo ' class="current_page_item"'; ?>><a href="<?php echo home_url(); ?>">Startseite</a></li></ul>
+			<?php wp_nav_menu( array( 'container' => 'none', 'theme_location' => 'primary' ) ); ?>
+		</div>
+	</div>
+<?php /*
+<img src="http://new.campusradio-jena.de/wp-content/themes/CampusRadioJenaWPTemplate/images/header_rel.png" width="950" height="30"  />
+*/ ?>
