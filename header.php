@@ -1,62 +1,111 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
 	<title><?php if ( is_home() ) echo bloginfo('name');?></title>
 	    
-	<meta name="description" content="Campusradio Jena" />
+	<meta name="description" content="<?php bloginfo('name');?>" />
 	<meta name="keywords" content="Campusradio Jena, Campusradio, Jena" />
+ 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="content-language" content="de" />
 	<meta http-equiv="pragma" content="no-cache" />
-	
-	<meta name="siteinfo" content="<?php bloginfo('url'); ?>/robots.txt" />
-	<meta name="robots" content="index,follow" />
 
-	<?php /*<?php bloginfo('template_directory')?>*/?>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	<?php
+		remove_action('wp_head', 'wp_generator');  // Versionsnummer entfernen 
+		wp_head();
+	?>	
+
+	<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/favicon.ico" type="image/x-icon"/>
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>"  media="screen" />
-	<link rel="stylesheet" type="text/css" href="style.css"  media="screen" />	
-	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
-	<link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
 	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo ('pingback_url'); ?>" />
-<?php wp_head(); ?> 
 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#wrapper').corner("20px");
+			//$("a[rel^='prettyPhoto']").prettyPhoto();
+		});
+	</script>
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.campusradio-jena.de/" : "http://stats.campusradio-jena.de/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://stats.campusradio-jena.de/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+<?php
+/*
+      // First we wait until the document is completely loaded using the handy
+      // jQuery "ready" method.
+      $(window).load(function() {
+        // No we can paint our canvas. Something rounded with a shadow ;-)
+        $("#wrapper").liquidCanvas(
+            "fill{color:#fff} => roundedRect");
+      });
+	<script type="text/javascript">
+		(function($) {
+		    $(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+		    });
+		// No we can paint our canvas. Something rounded with a shadow ;-)
+
+		})(jQuery);
+	</script>
+*/
+?>
 </head> 
 
 <body>
-	<div id="wrapper">
+<div id="wrapper">
 	
     <div id="page_header">
-    
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<table>
 		  <tr>
-		    <td valign="middle">&nbsp;</td>
 		    <td>&nbsp;</td>
-		    <td valign="middle">&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
 		  </tr>
 		  <tr>
-		    <td width="3%" valign="middle">&nbsp;</td>
-		    <td width="61%"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/logoEule.png" border="0" /></td>
-		    <td width="36%" valign="middle"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-		      <tr>
-		        <td><div align="center"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/hoeren.png" /></div></td>
-		        <td><div align="center"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/playlist.png" /></div></td>
-		        <td><div align="center"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/cam.png" /></div></td>
-		      </tr>
-		    </table></td>
-		    </tr>
+		    <td width="3%" >&nbsp;</td>
+		    <td width="61%">
+			<a href="<?php bloginfo('url'); ?>">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/logoEule.png" alt="Campusradio Jena Logo" />
+			</a>
+		    </td>
+		    <td width="36%" valign="middle">
+			    <table cellpadding="2">
+			      <tr align="center" valign="bottom">
+				<td><a href="<?php bloginfo('stylesheet_directory'); ?>/playlist.php"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/playlist.png" alt="Playlist" /></a></td>
+		        	<td>
+					<a title="Player starten" onclick="window.open('<?php bloginfo('url'); ?>/webplayer/webplayer.html','player','width=400,height=150'); return false; resizable=no; location=no; status=no" href="<?php bloginfo('url'); ?>/webplayer/webplayer.html"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/hoeren.png" alt="Hoeren" /></a></td>
+		        	<td><a href="<?php bloginfo('url'); ?>/interaktiv/studiocam/"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/cam.png" alt="StudiCam" /></a></td>
+				<td>&nbsp;</td>
+		      	      </tr>
+			      <tr>
+				<td align="center" valign="bottom"><a href="<?php bloginfo('url'); ?>/interaktiv/playlist/"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/playlist_sc.png" alt="Playlist" /></a></td>
+		        	<td align="center" valign="bottom"><a title="Player starten" onclick="window.open('<?php bloginfo('url'); ?>/webplayer/webplayer.html','player','width=400,height=150'); return false; resizable=no; location=no; status=no" href="<?php bloginfo('url'); ?>/webplayer.html"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/hoeren_sc.png" alt="Hoeren" /></a></td>
+		        	<td align="center" valign="bottom"><a href="<?php bloginfo('url'); ?>/interaktiv/studiocam/"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/cam_sc.png" alt="StudiCam" /></a></td>
+				<td>&nbsp;</td>
+		      	      </tr>
+			  </table>
+		  </td>
+	      </tr>
 		  <tr>
-		    <td valign="middle">&nbsp;</td>
 		    <td>&nbsp;</td>
-		    <td valign="middle">&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
 		  </tr>
 		
 		</table>
 
 	</div>
+	<?php dynamic_sidebar('Menu'); ?>
 	
 	<div id="nav">
 		<div id="menus">
@@ -64,6 +113,3 @@
 			<?php wp_nav_menu( array( 'container' => 'none', 'theme_location' => 'primary' ) ); ?>
 		</div>
 	</div>
-<?php /*
-<img src="http://new.campusradio-jena.de/wp-content/themes/CampusRadioJenaWPTemplate/images/header_rel.png" width="950" height="30"  />
-*/ ?>

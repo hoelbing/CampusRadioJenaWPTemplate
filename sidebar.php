@@ -1,35 +1,43 @@
 <div id="box_sidebar">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : ?>
+<?php
+global $options;
 
-<h2>Suche</h2>
-<p>
-<form method="get" id="searchform" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-	<input type="text" value="<?php echo wp_specialchars($s, 1); ?>" name="s" id="s" />
-	<input type="submit" id="search_submit" value="Suchen" />
-</form>
-</p>
+dynamic_sidebar('sidebar_box_content_banner');
+
+/*?>
+<div id="socialpic">
 
 
-<h2>Kategorien</h2>
-<ul>
-	<?php wp_list_categories('orderby=name&order=ASC&title_li='); ?>
-</ul>
-
-<h2>Archiv</h2>
-<ul>
-	<?php wp_get_archives('type=monthly'); ?>
-</ul>
-
-<h2>Seiten</h2>
-<ul>
-	<?php wp_list_pages(); ?>
-</ul>
-
-<h2>Blogroll</h2>
-<ul>
-	<?php wp_list_bookmarks(); ?>
-</ul>
-
-<?php  endif; ?>
+<table cellspacing="10" cellpadding="5" align="right">
+	<tr>
+		<td>
+			<a href="http://www.facebook.com/profile.php?ref=profile&amp;id=100000630928257&amp;ref=ts" rel="nofollow" target="_blank" >
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/socialpic/facebook.png" alt="Facebook" title="Facebook" />
+			</a>
+		</td>
+		<td>
+			<a href="http://www.twitter.com/campusradiojena" rel="nofollow" target="_blank">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/socialpic/twitter.png" alt="Twitter" title="Twitter" />
+			</a>
+		</td>
+		<td>
+			<a href="https://plus.google.com/100590966155526036461/about" rel="nofollow" target="_blank">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/socialpic/gplus-blue-32x32.png" alt="Google +" title="Google +" />
+			</a>
+		</td>
+	</tr>
+</table>
 
 </div>
+<br />
+<br />
+
+*/?>
+<?php
+foreach ($options as $value) {
+    if (get_option( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; } else { $value['id'] = get_option( $value['id'] ); }
+}
+
+	dynamic_sidebar('sidebar_box_content');
+?>
+</div><!-- end sidebar -->
