@@ -1,11 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de" >
 <head>
-	<title><?php if ( is_home() ) echo bloginfo('name');?></title>
+	<title><?php 
+			if ( is_home() ) 
+				echo bloginfo('name'); 
+			else
+				echo bloginfo('name') ."-" . the_title();
+		?>
+	</title>
 	    
 	<meta name="description" content="<?php bloginfo('name');?>" />
-	<meta name="keywords" content="Campusradio Jena, Campusradio, Jena" />
+	<meta name="keywords" lang="de" content="Campusradio Jena, Campusradio, Jena" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="content-language" content="de" />
@@ -26,19 +33,7 @@
 			$('#wrapper').corner("20px");
 			//$("a[rel^='prettyPhoto']").prettyPhoto();
 		});
-	</script>
-<!-- Piwik -->
-<script type="text/javascript">
-var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.campusradio-jena.de/" : "http://stats.campusradio-jena.de/");
-document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
-} catch( err ) {}
-</script><noscript><p><img src="http://stats.campusradio-jena.de/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
-<!-- End Piwik Tracking Code -->
+</script>
 <?php
 /*
       // First we wait until the document is completely loaded using the handy
@@ -59,9 +54,31 @@ piwikTracker.enableLinkTracking();
 	</script>
 */
 ?>
+
+
+
+
+
 </head> 
 
 <body>
+
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.campusradio-jena.de/" : "http://stats.campusradio-jena.de/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script>
+<noscript>
+<p><img src="http://stats.campusradio-jena.de/piwik.php?idsite=3" style="border:0" alt="" /></p>
+</noscript>
+<!-- End Piwik Tracking Code -->
+
 <div id="wrapper">
 	
     <div id="page_header">
@@ -88,8 +105,8 @@ piwikTracker.enableLinkTracking();
 				<td>&nbsp;</td>
 		      	      </tr>
 			      <tr>
-				<td align="center" valign="bottom"><a href="<?php bloginfo('url'); ?>/interaktiv/playlist/"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/playlist_sc.png" alt="Playlist" /></a></td>
-		        	<td align="center" valign="bottom"><a title="Player starten" onclick="window.open('<?php bloginfo('url'); ?>/webplayer/webplayer.html','player','width=400,height=150'); return false; resizable=no; location=no; status=no" href="<?php bloginfo('url'); ?>/webplayer.html"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/hoeren_sc.png" alt="Hoeren" /></a></td>
+				<td align="center" valign="bottom"><a href="<?php bloginfo('stylesheet_directory'); ?>/playlist.php"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/playlist_sc.png" alt="Playlist" /></a></td>
+		        	<td align="center" valign="bottom"><a title="Player starten" onclick="window.open('<?php bloginfo('url'); ?>/webplayer/webplayer.html','player','width=400,height=150'); return false; resizable=no; location=no; status=no" href="<?php bloginfo('url'); ?>/webplayer/webplayer.html"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/hoeren_sc.png" alt="Hoeren" /></a></td>
 		        	<td align="center" valign="bottom"><a href="<?php bloginfo('url'); ?>/interaktiv/studiocam/"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/cam_sc.png" alt="StudiCam" /></a></td>
 				<td>&nbsp;</td>
 		      	      </tr>

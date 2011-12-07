@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `playlisttable` (
 CREATE TABLE playlisttable
 (
   uid serial NOT NULL,
-  interpret character varying NOT NULL,
-  title character varying NOT NULL,
+  interpret character varying,
+  title character varying,
   playdate timestamp without time zone DEFAULT now(),
   is_stop integer NOT NULL DEFAULT 0,
   typ integer NOT NULL DEFAULT 1,
@@ -177,7 +177,7 @@ function create_html_playlist($playlist_array)
 	$playlist_tab = '<table border=0 cellspacing=4 cellpadding=4>'."\n"."\n";
 	$playlist_tab .= '<tr><th>Zeit</th><th>Titel</th><th>Interpret</th></tr>'."\n";
 	$i=0;
-	$zeilewert=1;
+	$zeilewert=0;
 	for ($i = count($playlist_array)-1; $i >= 0; $i-- )
 	{
 		$playlist_tab .= '<tr class="zeile'.$zeilewert.'">'."\n";
@@ -185,8 +185,8 @@ function create_html_playlist($playlist_array)
 		if ($playlist_array[$i]['playdate_stop'] != "")
 			$playlist_tab .= ' - '.$playlist_array[$i]['playdate_stop'].'<!--(Ende)-->';
 		$playlist_tab .= '  </td>'."\n";
-		$playlist_tab .= '  <td class="playlist"><!--Titel-->'.$playlist_array[$i]['title'].'</td>'."\n";
-		$playlist_tab .= '  <td class="playlist"><!--Interpret-->'.$playlist_array[$i]['interpret'].'</td>'."\n";
+		$playlist_tab .= '  <td class="playlist"><!--Titel-->'.utf8_encode($playlist_array[$i]['title']).'</td>'."\n";
+		$playlist_tab .= '  <td class="playlist"><!--Interpret-->'.utf8_encode($playlist_array[$i]['interpret']).'</td>'."\n";
 		$playlist_tab .= '</tr>'."\n";
 		if ($zeilewert==1)
 			$zeilewert=2;
